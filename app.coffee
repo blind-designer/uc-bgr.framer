@@ -17,11 +17,13 @@ base = [sk.i1, sk.i2, sk.i3, sk.i4, sk.i5, sk.i6, sk.i7, sk.i8, sk.i9, sk.i10, s
 
 # properties
 
-columns = 25
-rows = 15
+scalefactor = 1
 
-margin = 50
 
+margin = 50 * scalefactor
+
+columns = Math.round(Canvas.width/margin) #25
+rows = Math.round(Canvas.height/margin) #15
 
 # generate array
 container = []
@@ -34,12 +36,13 @@ for j in [0..rows]
 	for i in [0..columns]
 		icn = base[Math.floor(Math.random()*13)].copy()
 		icn.superLayer = backgroundA
-		icn.x = margin * i + (shifter * shvalue) + (30 - icn.width) / 2
-		icn.y = margin * j  + (30 - icn.height) / 2
-		icn.opacity = .15
+		icn.scale = scalefactor
+		icn.x = margin * i + (shifter * shvalue) + Math.round((30 - icn.width) / 2)
+		icn.y = margin * j  + Math.round((30 - icn.height) / 2)
+		icn.opacity = .17
 		icn.states.add
 			dim:
-				opacity:.06
+				opacity:.04
 				
 		icn.states.animationOptions =
 			time:1
