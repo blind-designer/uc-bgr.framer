@@ -34,8 +34,8 @@ for j in [0..rows]
 	for i in [0..columns]
 		icn = base[Math.floor(Math.random()*13)].copy()
 		icn.superLayer = backgroundA
-		icn.x = margin * i + (shifter * shvalue)
-		icn.y = margin * j
+		icn.x = margin * i + (shifter * shvalue) + (30 - icn.width) / 2
+		icn.y = margin * j  + (30 - icn.height) / 2
 		icn.opacity = .15
 		icn.states.add
 			dim:
