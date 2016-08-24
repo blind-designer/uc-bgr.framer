@@ -17,10 +17,10 @@ base = [sk.i1, sk.i2, sk.i3, sk.i4, sk.i5, sk.i6, sk.i7, sk.i8, sk.i9, sk.i10, s
 
 # properties
 
-scalefactor = 0.5
+scalefactor = 1
 
 
-margin = 60 * scalefactor
+margin = 56 * scalefactor
 
 columns = Math.round(Canvas.width/margin) #25
 rows = Math.round(Canvas.height/margin) #15
