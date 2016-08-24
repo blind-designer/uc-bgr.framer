@@ -25,24 +25,31 @@ margin = 56 * scalefactor
 columns = Math.round(Canvas.width/margin) #25
 rows = Math.round(Canvas.height/margin) #15
 
+baselight = .17
+basedim = .06
+dimshift = basedim / rows
+lightshift = baselight / rows
+
 # generate array
 container = []
 shifter = 1
 shvalue = margin / 2
 
+currentdim = basedim
+currentlight = baselight
+
 for j in [0..rows]
 	subcontainer = []
-		
 	for i in [0..columns]
 		icn = base[Math.floor(Math.random()*13)].copy()
 		icn.superLayer = backgroundA
 		icn.scale = scalefactor
 		icn.x = margin * i + (shifter * shvalue) + Math.round((30 - icn.width) / 2)
 		icn.y = margin * j  + Math.round((30 - icn.height) / 2)
-		icn.opacity = .17
+		icn.opacity = currentlight
 		icn.states.add
 			dim:
-				opacity:.06
+				opacity: currentdim
 				
 		icn.states.animationOptions =
 			time:1
@@ -51,6 +58,16 @@ for j in [0..rows]
 		
 			
 		subcontainer.push icn
+	
+	currentlight -= lightshift
+	currentdim -= dimshift
+	
+	if currentlight < 0
+		currentlight = 0
+	
+	if currentdim < 0
+		currentdim = 0
+	
 	
 	if shifter == 1
 		shifter = 0
