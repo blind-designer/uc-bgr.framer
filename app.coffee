@@ -17,10 +17,10 @@ base = [sk.i1, sk.i2, sk.i3, sk.i4, sk.i5, sk.i6, sk.i7, sk.i8, sk.i9, sk.i10, s
 
 # properties
 
-scalefactor = 1
+scalefactor = 0.5
 
 
-margin = 50 * scalefactor
+margin = 60 * scalefactor
 
 columns = Math.round(Canvas.width/margin) #25
 rows = Math.round(Canvas.height/margin) #15
@@ -42,7 +42,7 @@ for j in [0..rows]
 		icn.opacity = .17
 		icn.states.add
 			dim:
-				opacity:.04
+				opacity:.06
 				
 		icn.states.animationOptions =
 			time:1
